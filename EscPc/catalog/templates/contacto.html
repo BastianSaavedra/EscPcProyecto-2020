@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+{% block title %}Contacto{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<body>
+  <br>
+  <br>
+  <div id="seguimiento" class="container">
+      <div class="col-md-5">
+          <ol class="breadcrumb breadcrumb-extend">
+              <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+              <li class="breadcrumb-item active">Contacto</li>
+          </ol>
+      </div>
+  </div>
+  <div class="container">
+    <h1 style="font-family: fuente8bits;">Necesitas ayuda?</h1>
+    <hr class="bg-info">
+    <p class="pb-0 mb-0">No dudes en contactarnos, responderemos lo mas pronto posible</p>
+    <p class="text-danger small pt-0 nt-0">*Todos los campos son obligatorios</p>
+    <form class="formulario_contacto"  method="POST">
+      {% csrf_token %}
+      {{ contactoform | crispy }}
+      <div class="d-flex justify-content-center mb-3">
+        <button type="submit" style="font-size: 25px;" class="btn btn-success my-2">Enviar para Contactar</button>
+      </div>
+    </form>
+    {{ mensaje }}
+
+  </div>
+</body>
+{% endblock %}

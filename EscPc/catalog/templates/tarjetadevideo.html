@@ -1,0 +1,60 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Tarjetas de Video{% endblock %}
+
+{% block content %}
+    <body style="background-color: #f8f8f8;">
+
+            <section class="jumbotron text-center">
+                <style>
+                    section{
+                        background-image: url("/static/fotos/bannerProductos.jpg");
+                    }
+                </style>
+                <div class="container-fluid">
+                    <h1 style="font-size: 6vw; color: white;">Tarjetas de Video</h1>                       
+                </div>
+            </section>
+
+            <!--Seguimiento-->
+            <div id="seguimiento" class="container">
+                <div class="col-md-5">
+                    <ol class="breadcrumb breadcrumb-extend">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+                        <li class="breadcrumb-item active">Tarjetas de Video</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="album py-5">
+                <div class="container">
+                    <div class="row">
+                    {% for t in productoGpu %}  
+                        <div class=" col-md-4" >
+                            <div class="card mb-4 shadow-sm">
+                                <a href=""><img class="producto" src="{{ t.imagen.url }}"></a>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <b>Marca:</b> {{ t.marca }} <br> 
+                                        <b>Modelo:</b> {{ t.modelo }} <br>
+                                        <b>Plataforma:</b> {{ t.plataforma }} <br>
+                                        <b>Memoria:</b> {{ t.memoria }} <br>
+                                        <b>Frecuencia:</b> {{ t.frecuencia }} 
+                                    </p>
+                                    <h3>${{ t.precio }}</h3>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                        </div>
+                                        <small class="text-muted ml-2">stock:<b>{{ t.stock }}</b></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div> 
+            </div>                          
+    </body>
+{% endblock %}

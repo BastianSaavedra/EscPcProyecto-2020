@@ -1,0 +1,67 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Procesadores{% endblock %}
+
+{% block content %}
+  <body style="background-color: #f8f8f8;">
+
+        <section class="jumbotron text-center" >
+            <style>
+                section{
+                    background-image: url("/static/fotos/bannerProductos.jpg");
+                }
+            </style>
+            <div class="container-fluid">
+                <h1 style="font-size: 6vw; color: white;">Procesadores</h1>
+            </div>
+        </section>
+
+        <!--Seguimiento-->
+        <div id="seguimiento" class="container" >
+            <div class="col-md-5">
+                <ol class="breadcrumb breadcrumb-extend">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+                    <li class="breadcrumb-item active">Procesadores</li>
+                </ol>
+            </div>
+        </div>
+        <div class="my-2 my-lg-0" style="text-align:center;">
+          <a style="font-size: 20px;" href="{% url 'procesadores' %}" class="btn btn-warning btn-sm">Lista de Productos</a>
+        </div>
+
+
+        {% if productoProce %}
+        <div class="album py-5">
+            <div class="container" >
+                <div class="row">
+                {% for proce in productoProce %}
+                    <div class=" col-md-4" >
+                        <div class="card mb-4 shadow-sm">
+                            <a href="{% url 'procesadores-detail' proce.id %}"><img class="producto" src="{{ proce.imagen.url }}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> {{ proce.marca }} <br>
+                                    <b>Modelo:</b> {{ proce.modelo }}<br>
+                                    <b>Frecuencia:</b> {{ proce.frecuencia }}<br>
+                                    <b>Socket:</b> {{ proce.socket}} <br>
+                                </p>
+                                <h3>${{ proce.precio }}</h3>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{% url 'procesadores-detail' proce.id %}" class="btn btn-sm btn-outline-secondary">Detalles</a>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ proce.stock }}</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+          {% else %}
+          <p>No hay productos</p>
+        {% endif %}
+</body>
+{% endblock %}

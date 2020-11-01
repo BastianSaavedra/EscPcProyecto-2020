@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!--css-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estiloNav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estiloProductos.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
+
+
+
+
+    <title>EscPc | {% block title %}{% endblock %}</title>
+
+  </head>
+  <body style="background-color: #f8f8f8;">
+    <!--Aqui empieza la barra de navegacion-->
+    <div class="container-fluid" style="background-color:black;">
+        <nav class="navbar navbar-expand-lg navbar-dark text-center">
+          <a class="navbar-brand" href="{% url 'index' %}">EscPc</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="barraNavegacion">
+
+
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+                {% block dropdown %}
+                <li class="nav-item ">
+                    <a href="{% url 'index' %}" class="nav-link">Inicio</a>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" data-target="desplegable">Componentes</a>
+
+                    <div class="dropdown-menu">
+                        <a href="{% url 'placamadre' %}" class="dropdown-item">Placas Madres</a>
+                        <a href="{% url 'procesador' %}" class="dropdown-item">Procesadores</a>
+                        <a href="{% url 'video' %}" class="dropdown-item">Tarjetas de video</a>
+                        <a href="{% url 'rams' %}" class="dropdown-item">Ram</a>
+                        <a href="{% url 'alma' %}" class="dropdown-item">Almacenamiento</a>
+                        <a href="{% url 'fuente' %}" class="dropdown-item">Fuentes de Poder</a>
+                        <a href="{% url 'gabo' %}" class="dropdown-item">Gabinetes</a>
+                        <a href="{% url 'moni' %}" class="dropdown-item">Monitores</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{% url 'contacto' %}" class="nav-link">Contacto</a>
+                </li>
+                {% endblock %}
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input style="font-size: 13px;" class="form-control mr-sm-2 " type="search" placeholder="Buscar" aria-label="Search">
+                <button style="font-size: 13px;" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Buscar</button>
+              </form>
+            </div>
+          </nav>
+    </div>
+    <!--contenido de todas las paginas-->
+    {% block content %}{% endblock %}
+
+    <footer>
+        <div class="container-fluid">
+          <p>Equipo de: EscPc</p>
+          <p><a href="contacto.html" style="color: #fff;">Contactate con nosotros!</a></p>
+        </div>
+    </footer>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  {% if messages %}
+    {% for m in messages %}
+      <script>
+          Swal.fire({
+            "title": "Felicitaciones",
+            "text": "{{m}}",
+            "icon": "success"
+          })
+      </script>
+    {% endfor %}
+  {% endif %}
+  {% block javas %}
+  {% endblock %}
+
+  </body>
+</html>

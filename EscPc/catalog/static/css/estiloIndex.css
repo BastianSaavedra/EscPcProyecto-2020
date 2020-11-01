@@ -1,0 +1,47 @@
+@font-face{
+    font-family: fuente8bits;
+    src: url(Sabo-Filled.ttf);
+}
+
+body{
+    background-color: #6c6c6c;
+}
+
+.titulo{
+    border-style: double;
+    border-width: 10px;
+    display: inline-block;
+    color: #fff;
+    font-size: 2.5vw;
+    margin-top: 10px; 
+}
+
+.imagen{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    height: 15vw;
+    background-position: center ;
+}
+
+.imagen:hover{
+    opacity: 0.9;
+}
+
+div{
+    font-family: fuente8bits;
+}
+
+
+@media (min-width: 768px){
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        flex: 1;
+    }
+}
+
+
+
+
+
+

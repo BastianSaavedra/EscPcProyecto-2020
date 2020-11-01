@@ -1,0 +1,59 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Almacenamiento{% endblock %}
+
+{% block content %}
+    <body style="background-color: #f8f8f8;">
+        <section class="jumbotron text-center">
+            <style>
+                section{
+                    background-image: url("/static/fotos/bannerProductos.jpg");
+                }
+            </style>
+            <div class="container-fluid">
+                <h1 style="font-size: 6vw; color: white;">Almacenamiento</h1>
+            </div>
+        </section>
+
+        <!--Seguimiento-->
+        <div id="seguimiento" class="container">
+            <div class="col-md-5">
+                <ol class="breadcrumb breadcrumb-extend">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+                    <li class="breadcrumb-item active">Almacenamiento</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="album py-5">
+            <div class="container">
+                <div class="row">
+                {% for a in productoAlmacenamiento %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href=""><img class="producto" src="{{ a.imagen.url }}"></a>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Marca:</b> {{ a.marca }} <br>
+                                    <b>Modelo:</b> {{ a.modelo }} <br>
+                                    <b>Capacidad:</b> {{ a.capacidad }} <br>
+                                    <b>Formato:</b> {{ a.formato }} <br>
+                                    <b>Bus:</b> {{ a.bus }} <br>
+                                </p>
+                                <h3>${{ a.precio }}</h3> 
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
+                                    </div>
+                                    <small class="text-muted ml-2">stock:<b>{{ a.stock }}</b></small>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}

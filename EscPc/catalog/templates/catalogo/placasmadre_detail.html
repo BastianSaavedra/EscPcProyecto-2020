@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% block title %}{{ placasmadre.modelo }}{% endblock %}
+{% block content %}
+<body>
+  <div id="seguimiento" class="container mt-3">
+    <div class="col-md-8">
+      <ol class="breadcrumb breadcrumb-extend">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'placamadre' %}">Placas Madres</a></li>
+        <li class="breadcrumb-item active">{{ placasmadre.marca }} {{ placasmadre.modelo }}</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="container mt-3">
+    <h2 style="font-family: fuente8bits; font-size: 4vw" class="text-center">{{ placasmadre.marca }} {{ placasmadre.modelo }}</h2>
+    <div style="border: double; border-color: green;" class="card">
+      <img src="{{ placasmadre.imagen_detail.url }}">
+    </div>
+    <p style="font-size: 4vw;" class="text-center">${{ placasmadre.precio }}</p>
+  </div>
+
+  <div class="container" >
+    <h2 style="font-family: fuente8bits;">Caracteristicas</h2>
+    <table class="table table-striped table-hover table-responsive-sm">
+      <tr style="font-size: 20px;"><th>Marca:</th><td>{{ placasmadre.marca}}</td></tr>
+      <tr style="font-size: 20px;"><th>Modelo:</th><td>{{ placasmadre.modelo}}</td></tr>
+      <tr style="font-size: 20px;"><th>Formato:</th><td>{{ placasmadre.formato}}</td></tr>
+      <tr style="font-size: 20px;"><th>Plataforma:</th><td>{{ placasmadre.plataforma}}</td></tr>
+    </table>
+  </div>
+</body>
+{% endblock %}

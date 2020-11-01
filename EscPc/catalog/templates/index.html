@@ -1,0 +1,167 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+
+    
+{% block content %}
+<head>
+  {% load static %}<link rel="stylesheet" href="{% static 'css/estiloIndex.css' %}">
+</head>
+<body > 
+  
+
+    <div id="carouselIndex" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" >
+         {% load static %} <img src="{% static 'fotos/carrucel/geforce-rtx-laptops-social-1500x500-tw.jpg' %}" class="d-block w-100" alt="Asus">
+        </div>
+        <div class="carousel-item ">
+          {% load static %}<img src="{% static 'fotos/carrucel/4AtsM1w.jpg' %}" class="d-block w-100" alt="Intel"> 
+        </div>
+        <div class="carousel-item" >
+          {% load static %}<img src="{% static 'fotos/carrucel/geforce-rtx-3080-hero-background-image-spec2-bb770_550-d@2x.jpg' %}" class="d-block w-100" alt="Gigabyte">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselIndex" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselIndex" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    
+    <!--primera fila placa y proce-->
+    <div class="d-md-flex flex-md-equal d-block w-100 my-md-3 " style="width: auto; height: auto;">
+        <!--placas-->
+        <a href="{% url 'placamadre' %}">
+          <div id="placa" class="imagen" class=" mr-md-3 pt-3 px-3 ml-md-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <style>
+              #placa{
+                background-image: url("/static/fotos/categoriasindex/placa.jpg");
+              }
+            </style>
+
+                  
+            <div class="my-2 p-1">
+              <p class="titulo" >Placas madres</p>
+            </div>           
+          </div>
+        </a>
+        
+        <!--proce-->
+        <a href="{% url 'procesador' %}">
+          <div id="proce" class="imagen" class=" mr-md-3 pt-3 px-3 mr-md-3  pt-md-5 px-md-5 text-center overflow-hidden">
+            <style>
+              #proce{
+                background-image: url("/static/fotos/categoriasindex/proce.jpg");
+              }
+            </style>
+            <div class="my-2 p-1">
+              <p class="titulo">Procesadores</p>            
+            </div>
+          </div>
+        </a>
+    </div>
+    
+
+    <!--segunda fila video y ram-->
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 " style="width: auto; height: auto;" >
+        <!--video-->
+        <a href="{% url 'video' %}">
+          <div id="gpu" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" >
+            <style>
+              #gpu{
+                background-image: url("/static/fotos/categoriasindex/gpu.jpg");
+              }
+            </style>
+            <div class="my-2 p-1">
+              <p class="titulo">Tarjetas de video</p>
+            </div>
+          </div>
+        </a>
+
+        <!--ram-->
+        <a href="{% url 'rams' %}">
+          <div id="ram" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <style>
+              #ram{
+                background-image: url("/static/fotos/categoriasindex/ram.jpg");
+              }
+            </style>
+            <div class="my-2 p-1">
+              <p class="titulo">Ram</p>           
+            </div>
+          </div>
+        </a>
+    </div>
+
+    <!--tercerta fila almacenimiento y fuente de poder-->
+    <div class=" d-md-flex flex-md-equal w-100 my-md-3 " style="width: auto; height: auto;">
+        <!--almacenimiento-->
+        <a href="{% url 'alma' %}">
+          <div id="almacenamiento" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <style>
+              #almacenamiento{
+                background-image: url("/static/fotos/categoriasindex/almacenamiento.jpg");
+              }
+            </style>
+            <div class="my-2 p-1">
+              <p class="titulo">Almacenamiento</p>           
+            </div>
+          </div>
+        </a>
+
+        <!--fuente de poder-->
+        <a href="{% url 'fuente' %}">
+          <div id="fuente" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" >
+            <style>
+              #fuente{
+                background-image: url("/static/fotos/categoriasindex/fuentedepoder.jpg");
+              }
+            </style>
+            <div class="my-2 p-1">
+              <p class="titulo">Fuentes de poder</p>          
+            </div>
+          </div>
+        </a>
+    </div>
+
+    <!--cuarta fila gabinetes y monitores-->
+    <div class="d-md-flex flex-md-equal w-100 my-md-3" style="width: auto; height: auto;">
+        <!--gabitenes-->
+        <a href="{% url 'gabo' %}">
+          <div id="gabinete" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+           <style>
+             #gabinete{
+               background-image: url("/static/fotos/categoriasindex/gabinete.jpg");
+             }
+           </style>
+            <div class="my-2 p-1">
+              <p class="titulo">Gabinetes</p>
+            </div>
+          </div>
+        </a>
+
+        <!--monitores-->
+        <a href="{% url 'moni' %}">
+          <div id="monitor" class="imagen" class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <style>
+              #monitor{
+                background-image: url("/static/fotos/categoriasindex/monitor.jpeg");
+              }
+            </style>
+            <div class="my-2 p-1 ">
+              <p class="titulo">Monitores</p>
+            </div>
+          </div>
+        </a>
+    </div>
+</body>
+{% endblock %}
+
+    

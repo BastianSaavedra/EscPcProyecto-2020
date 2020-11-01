@@ -1,0 +1,72 @@
+{% extends "base_generic.html" %}
+{% block title %}Lista de Placas Madres{% endblock %}
+{% block content %}
+<br>
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"
+</head>
+
+<body >
+  <div id="seguimiento" class="container">
+      <div class="col-md-5">
+          <ol class="breadcrumb breadcrumb-extend">
+              <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'placamadre' %}">Placas Madres</a></li>
+              <li class="breadcrumb-item active">Lista de productos</li>
+          </ol>
+      </div>
+  </div>
+  <div class="container mt-5" >
+    <div class="card">
+      <div class="card-body">
+        <h1 style="font-family: fuente8bits; font-size: 3vw; float:left;">Lista de productos</h1>
+        <a style="float: right;" href="{% url 'nueva_placa' %}" class="btn btn-success btn-sm mt-4">Ingresar Producto</a>
+        {% if placasmadre_list %}
+        <table class="table table-striped table-hover table-responsive-sm">
+          <tr style="font-size: 20px;">
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Formato</th>
+            <th>Plataforma</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Opciones</th>
+            <th>Detalles</th>
+          </tr>
+
+          {% for placa in placasmadre_list %}
+          <tr>
+            <td>{{ placa.marca }}</td>
+            <td>{{ placa.modelo }}</td>
+            <td>{{ placa.formato }}</td>
+            <td>{{ placa.plataforma }}</td>
+            <td>{{ placa.stock }}</td>
+            <td>${{ placa.precio }}</td>
+            <td>
+              <a href="{% url 'modificar_placa' placa.id %}" class="btn btn-info btn-sm">Modificar</a>
+              <a href="{% url 'eliminar_placa' placa.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+            <td>
+              <a href="{% url 'placas-detail' placa.id %}">
+                <i style="font-size: 24px;" class="fa">&#xf002</i>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+          {% else %}
+            <p>No hay productos</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+</body>
+
+
+
+
+
+{% endblock %}
